@@ -26,7 +26,7 @@ export default function checkoutPopItem({
     width: 80,
     height: 80,
     borderRadius: 8,
-    objectFit: "cover",
+    objectFit: "contain",
   };
 
   const removeButtonStyle = {
@@ -102,6 +102,8 @@ export default function checkoutPopItem({
                 onChange={handleQtyChange}
                 style={qtyInputStyle}
                 placeholder="0"
+                aria-label="Quantity to add"
+
               />
               <button style={qtyButtonStyle} onClick={add}>
                 +

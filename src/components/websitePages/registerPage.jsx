@@ -16,7 +16,7 @@ import {
 import { useNavigate } from "react-router";
 import { useCallback, useState, useContext } from "react";
 import SvgTexture from "../../assets/backLogin.svg";
-import { AuthContext } from "../structural/CalorieCartApp"; 
+import { AuthContext } from "../structural/CalorieCartApp";
 
 export default function register() {
   const [weight, setWeight] = useState(0);
@@ -67,7 +67,7 @@ export default function register() {
         if (alreadyExists) {
           setErrorText("An account with that username already exists.");
           setSubmission(false);
-          return Promise.reject("USERNAME_EXISTS"); 
+          return Promise.reject("USERNAME_EXISTS");
         }
 
         return fetch("https://cs571api.cs.wisc.edu/rest/f25/bucket/account", {
@@ -85,22 +85,22 @@ export default function register() {
             heightIn: inch,
             gainSelected,
             loseSelected,
-            weeklyProgress: {                
-              caloriesConsumed: 0,            
-              proteinConsumed: 0,             
-              fatConsumed: 0,                 
+            weeklyProgress: {
+              caloriesConsumed: 0,
+              proteinConsumed: 0,
+              fatConsumed: 0,
             },
           }),
         });
       })
       .then((res) => {
-        if (!res) return null;              
+        if (!res) return null;
         return res.json();
       })
       .then((created) => {
-        if (!created) return;             
+        if (!created) return;
 
-        const accountId = created.id; 
+        const accountId = created.id;
 
         const newUser = {
           userName,
@@ -110,8 +110,8 @@ export default function register() {
           heightIn: inch,
           gainSelected,
           loseSelected,
-          accountId,                        
-          weeklyProgress: {                 
+          accountId,
+          weeklyProgress: {
             caloriesConsumed: 0,
             proteinConsumed: 0,
             fatConsumed: 0,
@@ -119,22 +119,16 @@ export default function register() {
         };
 
         setUser(newUser);
-       console.log(created)
-       console.log(accountId);
+        console.log(created);
+        console.log(accountId);
         alert("Account created! You can now log in.");
         setSubmission(false);
         navigate("/");
       });
-     
-  };                                     
-
-  
-
-
+  };
 
   const ft = Math.floor(height / 12);
   const inch = height % 12;
-
 
   return (
     <div
@@ -164,6 +158,8 @@ export default function register() {
       />
 
       <Container style={{ position: "relative", zIndex: 1 }}>
+      <h1 hidden={true}>Register Page</h1>
+
         <Card
           style={{
             maxWidth: 720,
@@ -173,7 +169,7 @@ export default function register() {
         >
           <Card.Header
             style={{
-              background: "#59b371",
+              background: "#367C49",
               borderTopLeftRadius: 20,
               borderTopRightRadius: 20,
               padding: "18px 16px",
@@ -182,13 +178,13 @@ export default function register() {
             {erroText && (
               <div
                 style={{
-                  color: "red",
+                  color: "#F7F7F7",
                   padding: "8px 16px 0 16px",
                   textAlign: "center",
                   fontSize: "0.95rem",
                 }}
               >
-                {erroText}
+                {`*${erroText}`}
               </div>
             )}
             <h2
@@ -212,6 +208,7 @@ export default function register() {
               <FloatingLabel label="Username" className="mb-3">
                 <Form.Control
                   name="username"
+                  aria-label="Username"
                   type="text"
                   placeholder="Username"
                   autoComplete="none"
@@ -222,6 +219,7 @@ export default function register() {
 
               <FloatingLabel label="Password" className="mb-3">
                 <Form.Control
+                  aria-label="Password"
                   name="password"
                   type="password"
                   placeholder="Password"
@@ -233,6 +231,7 @@ export default function register() {
 
               <FloatingLabel label="Pre-Password" className="mb-3">
                 <Form.Control
+                  aria-label="Confirm Password"
                   name="pre-password"
                   type="password"
                   placeholder="Confirm Password"
@@ -265,6 +264,7 @@ export default function register() {
                       min={80}
                       max={400}
                       value={weight}
+                      aria-label={`Weight Selection ${weight} pounds`}
                       onChange={(e) => setWeight(Number(e.target.value))}
                     />
                   </Col>
@@ -293,6 +293,7 @@ export default function register() {
                       min={48}
                       max={84}
                       value={height}
+                      aria-label={`Height Selection ${height} pounds`}
                       onChange={(e) => setHeight(Number(e.target.value))}
                     />
                   </Col>
@@ -319,6 +320,7 @@ export default function register() {
                 <ToggleButton
                   id="goal-lose"
                   type="checkbox"
+                  className="goal-toggle"
                   variant={loseSelected ? "primary" : "outline-primary"}
                   checked={loseSelected}
                   value="lose"

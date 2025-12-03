@@ -24,7 +24,7 @@ export default function  CircularStat({label, value, max, color }) {
             cy="45"
             r={radius}
             fill="none"
-            stroke="#e5e5e5"
+            stroke="#eaedef"
             strokeWidth={strokeWidth}
           />
           {/* progress circle */}

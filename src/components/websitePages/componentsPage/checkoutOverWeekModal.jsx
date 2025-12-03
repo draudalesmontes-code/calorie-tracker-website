@@ -46,7 +46,7 @@ export default function CheckoutModalWeekWithin({
           </p>
           <p style={{ marginBottom: 4 }}>
            Calories above weekly limit by {" "}
-            <strong>{Math.round(weeklyCaloriesAfter)} cal</strong>
+            <strong>{Math.round(weeklyCaloriesAfter-weeklyCaloriesGoal)} cal</strong>
 
           </p>
         </div>

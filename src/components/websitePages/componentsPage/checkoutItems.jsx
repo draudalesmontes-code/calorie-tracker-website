@@ -19,10 +19,10 @@ export default function CheckoutItems({
 
   const removeButtonStyle = {
     padding: "4px 12px",
-    backgroundColor:"#dc3545",
+    backgroundColor: "#dc3545",
     border: "none",
     color: "white",
-    width:"100%",
+    width: "100%",
     fontSize: 14,
     fontWeight: 600,
     cursor: "pointer",
@@ -37,7 +37,7 @@ export default function CheckoutItems({
     borderRadius: 999,
     border: "1px solid #ddd",
     padding: "4px 10px",
-      width: "fit-content"
+    width: "fit-content",
   };
 
   const qtyButtonStyle = {
@@ -50,25 +50,41 @@ export default function CheckoutItems({
   const cals = item?.nutrition?.calories_kcal ?? "-";
   const prot = item?.nutrition?.protein_g ?? "-";
   const fat = item?.nutrition?.fat_g ?? "-";
-  const carb = item?.nutrition?.carbs ?? "-";
 
   return (
     <div>
       <Row>
         <Col md={2}>
           <img
-          src={item.image}
+            src={item.image}
             alt="Item"
-            style={{ maxWidth: "100%", maxHeight: "120px", marginRight:10 ,objectFit: "contain",display: "block"}}
+            style={{
+              maxWidth: "100%",
+              maxHeight: "120px",
+              marginRight: 10,
+              objectFit: "contain",
+              display: "block",
+            }}
           />
         </Col>
         <Col md={4}>
-          <h5>{item?.description || "Food item"}</h5>
-          <h6>
+          <h2
+            style={{
+              fontSize: "1.25rem",
+              marginBottom: "0.25rem",
+            }}
+          >
+            {item?.description || "Food item"}
+          </h2>
+          <h3
+            style={{
+              fontSize: "1rem", 
+              marginBottom: "0.5rem",
+            }}
+          >
             Price: ${item?.price?.toFixed ? item.price.toFixed(2) : item?.price}
-          </h6>
+          </h3>
           <Col>
-           
             <div style={qtyWrapperStyle}>
               <button style={qtyButtonStyle} onClick={subtract}>
                 −
@@ -80,14 +96,12 @@ export default function CheckoutItems({
                 onChange={handleQtyChange}
                 style={qtyInputStyle}
                 placeholder="0"
+                aria-label="Quantity to add"
               />
               <button style={qtyButtonStyle} onClick={add}>
                 +
               </button>
-            
             </div>
-            
-            
           </Col>
         </Col>
         <Col md={5}>
@@ -97,7 +111,6 @@ export default function CheckoutItems({
                 <th>Calories</th>
                 <th>Protein</th>
                 <th>Fat</th>
-                <th>Carbs</th>
               </tr>
             </thead>
             <tbody>
@@ -105,22 +118,18 @@ export default function CheckoutItems({
                 <td>{cals}</td>
                 <td>{prot}</td>
                 <td>{fat}</td>
-                <td>{carb}</td>
               </tr>
             </tbody>
           </Table>
           <button
-              style={removeButtonStyle}
-              aria-label="Remove item"
-              onClick={removeItem}
-            >
-              remove
-            </button>
+            style={removeButtonStyle}
+            aria-label="Remove item"
+            onClick={removeItem}
+          >
+            remove
+          </button>
         </Col>
-        
       </Row>
-      
     </div>
-    
   );
 }

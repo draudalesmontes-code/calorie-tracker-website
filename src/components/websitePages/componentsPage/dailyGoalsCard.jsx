@@ -24,7 +24,7 @@ export default function dailyGoalsCard({ title, values }) {
     <Card style={CardStyle}>
       <Card.Header
         style={{
-          backgroundColor: "#59b371",
+          backgroundColor: "#367C49",
           color: "white",
           fontWeight: "bold",
           fontSize: 18,
@@ -48,7 +48,7 @@ export default function dailyGoalsCard({ title, values }) {
               label="Calories"
               value={caloriesConsumed}
               max={caloriesGoal}
-              color="#35b000"
+              color="#288500"
             />
           </Col>
 
@@ -57,7 +57,7 @@ export default function dailyGoalsCard({ title, values }) {
               label="Protein (g)"
               value={proteinConsumed}
               max={proteinGoal}
-              color="#f54f2a"
+              color="#C82C09"
             />
           </Col>
 
@@ -66,7 +66,7 @@ export default function dailyGoalsCard({ title, values }) {
               label="Fat (g)"
               value={fatConsumed}
               max={fatGoal}
-              color="#e3aa0e"
+              color="#007BC7"
             />
           </Col>
 

@@ -197,8 +197,8 @@ export default function EditAccount({ show, onHide }) {
             type="submit"
             disabled={saving}
             style={{
-              backgroundColor: "#59b371",
-              borderColor: "#59b371",
+              backgroundColor: "#367C49",
+              borderColor: "#367C49",
               fontWeight: "bold",
             }}
           >

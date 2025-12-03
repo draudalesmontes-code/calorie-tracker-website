@@ -47,7 +47,7 @@ export default function HomePage(
     fontWeight: 700, 
     width:"40%",
     borderRadius:20,
-    backgroundColor: "#59b371",
+    backgroundColor: "#367C49",
     margin: "0 auto 8px",        
     padding: "8px 16px",        
     color: "white",         
@@ -55,7 +55,7 @@ export default function HomePage(
   const textStyle = {
       fontSize: "1.25rem",  
       borderRadius:20,
-      backgroundColor: "#59b371",
+      backgroundColor: "#367C49",
       margin: "0 auto ",        
       color: "white",  
       display: "inline-block",
@@ -67,25 +67,25 @@ export default function HomePage(
         <h1 style={titleStyle}>Calorie Cart</h1>
         <Carousel>
           <Carousel.Item>
-            <Image src={imageCaltrack} alt="First slide" style={heroStyle} />
+            <Image src={imageCaltrack} alt="Image of balance meal" style={heroStyle} />
             <Carousel.Caption style={captionStyle}>
-              <h3 style={captionTitleStyle}>Welcome to Calorie Cart</h3>
+              <h2 style={captionTitleStyle}>Welcome to Calorie Cart</h2>
               <p style={textStyle}> Experience shopping with Calorie tracking.</p>
             </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
-            <Image src={healthyDiet} alt="First slide" style={heroStyle} />
+            <Image src={healthyDiet} alt="Image of healthy food" style={heroStyle} />
             <Carousel.Caption style={captionStyle}>
-              <h3 style={captionTitleStyle}>Meet your Goals</h3>
+              <h2 style={captionTitleStyle}>Meet your Goals</h2>
               <p style={textStyle}>Calorie cart helps you meet the dietary goals you want to meet.</p>
             </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
-            <Image src={exercise} alt="First slide" style={heroStyle} />
+            <Image src={exercise} alt="Image of Person Exercising" style={heroStyle} />
             <Carousel.Caption style={captionStyle}>
-              <h3 style={captionTitleStyle}>Meet Your Gym Goals</h3>
+              <h2 style={captionTitleStyle}>Meet Your Gym Goals</h2>
               <p style={textStyle}>With a shopping that keeps you accountable of what you are eating achieve the physique you want.</p>
             </Carousel.Caption>
           </Carousel.Item>

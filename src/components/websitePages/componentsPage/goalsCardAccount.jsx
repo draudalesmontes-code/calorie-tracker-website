@@ -6,7 +6,12 @@ import {
   ToggleButtonGroup,
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
-export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelected, onEditGoals}) {
+export default function goalsCardAccount({
+  weeklyGoals,
+  loseSelected,
+  gainSelected,
+  onEditGoals,
+}) {
   const caloriesConsumed = weeklyGoals.caloriesConsumed ?? 0;
   const caloriesGoal = weeklyGoals.caloriesGoal ?? 2500 * 7;
   const proteinConsumed = weeklyGoals.proteinConsumed ?? 0;
@@ -22,8 +27,6 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
     : 0;
   const fatPct = fatGoal ? Math.min(100, (fatConsumed / fatGoal) * 100) : 0;
 
-
-
   return (
     <Card
       style={{
@@ -36,7 +39,7 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
     >
       <Card.Header
         style={{
-          backgroundColor: "#59b371",
+          backgroundColor: "#367C49",
           color: "white",
           fontWeight: "bold",
           fontSize: 18,
@@ -62,7 +65,9 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
 
       <Card.Body style={{ padding: 20 }}>
         <div style={{ marginTop: 10 }}>
-          <h5>Calories Consumed</h5>
+          <h2 style={{ fontSize: "1.25rem", marginBottom: "0.25rem" }}>
+            Calories Consumed
+          </h2>
           <div
             style={{
               display: "flex",
@@ -76,7 +81,7 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
             <div style={{ flex: 1, margin: "8px" }}>
               <ProgressBar
                 style={{
-                  "--bs-progress-bar-bg": "#35b000",
+                  "--bs-progress-bar-bg": "#288500",
                   fontWeight: 600,
                 }}
                 now={caloriesPct}
@@ -84,13 +89,15 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
               />
             </div>
             <span style={{ fontSize: 14, fontWeight: 500 }}>
-             {caloriesGoal}
+              {caloriesGoal}
             </span>
           </div>
         </div>
 
         <div style={{ marginTop: 20 }}>
-          <h5>Protein Consumed</h5>
+          <h2 style={{ fontSize: "1.25rem", marginBottom: "0.25rem" }}>
+            Protein Consumed
+          </h2>
           <div
             style={{
               display: "flex",
@@ -98,13 +105,13 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
               justifyContent: "space-between",
             }}
           >
-          <span style={{ fontSize: 14, fontWeight: 500 }}>
-             {proteinConsumed}g
-           </span>
+            <span style={{ fontSize: 14, fontWeight: 500 }}>
+              {proteinConsumed}g
+            </span>
             <div style={{ flex: 1, margin: " 8px" }}>
               <ProgressBar
                 style={{
-                  "--bs-progress-bar-bg": "#f54f2a",
+                  "--bs-progress-bar-bg": "#C82C09",
                   fontWeight: 600,
                 }}
                 now={proteinPct}
@@ -118,7 +125,9 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
         </div>
 
         <div style={{ marginTop: 20 }}>
-          <h5>Fat Consumed</h5>
+          <h2 style={{ fontSize: "1.25rem", marginBottom: "0.25rem" }}>
+            Fat Consumed
+          </h2>
           <div
             style={{
               display: "flex",
@@ -134,7 +143,7 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
                 now={fatPct}
                 label="fat%"
                 style={{
-                  "--bs-progress-bar-bg": "#e3aa0e",
+                  "--bs-progress-bar-bg": "#007BC7",
                   height: "18px",
                   fontWeight: 600,
                   borderRadius: "8px",
@@ -142,9 +151,7 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
               />
             </div>
 
-            <span style={{ fontSize: 14, fontWeight: 500 }}>
-             {fatGoal}g
-           </span>
+            <span style={{ fontSize: 14, fontWeight: 500 }}>{fatGoal}g</span>
           </div>
         </div>
         <div style={{ marginTop: 8, marginBottom: 8 }}>
@@ -155,7 +162,13 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
             checked={gainSelected}
             disabled
             value="gain"
-            style={{ marginRight: 8 }}
+            style={{
+              marginRight: 8,
+              backgroundColor: gainSelected ? "#0260EDF2" : "transparent",
+              borderColor: "#0260EDF2",
+              color: gainSelected ? "#ffffff" : "#0260EDF2",
+              opacity: 1, // kill disabled dimming// kill disabled dimming
+            }}
           >
             Gain Weight
           </ToggleButton>
@@ -166,6 +179,13 @@ export default function goalsCardAccount({ weeklyGoals, loseSelected, gainSelect
             variant={loseSelected ? "primary" : "outline-primary"}
             checked={loseSelected}
             disabled
+            // className="goal-toggle"
+            style={{
+              backgroundColor: loseSelected ? "#0260EDF2" : "transparent",
+              borderColor: "#0260EDF2",
+              color: loseSelected ? "#ffffff" : "#0260EDF2",
+              opacity: 1, // kill disabled dimming
+            }}
             value="lose"
           >
             Lose Weight

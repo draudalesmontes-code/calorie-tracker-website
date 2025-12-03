@@ -15,38 +15,37 @@ export default function CalorieCartAppLayout({ children }) {
 
   const [qty, setQty] = useState({});
   const removeItem = (id) => {
-        setQty((prev) => ({
-          ...prev,
-          [id]: 0,
-        }));
-      };
+    setQty((prev) => ({
+      ...prev,
+      [id]: 0,
+    }));
+  };
   const add = (id) => {
-        setQty((prev) => ({
-          ...prev,
-          [id]: (prev[id] || 0) + 1,
-        }));
-      };
-      const subtract = (id) => {
-           setQty((prev) => {
-            const current = prev[id] || 0;
-            const next = Math.max(0, current - 1);
-            return { ...prev, [id]: next };
-          });
-        };
+    setQty((prev) => ({
+      ...prev,
+      [id]: (prev[id] || 0) + 1,
+    }));
+  };
+  const subtract = (id) => {
+    setQty((prev) => {
+      const current = prev[id] || 0;
+      const next = Math.max(0, current - 1);
+      return { ...prev, [id]: next };
+    });
+  };
 
-        const clearCart = () => {
-          setQty({});
-        };
+  const clearCart = () => {
+    setQty({});
+  };
 
-      const handleQtyChange = (id, e) => {
-            const raw = e.target.value.replace(/[^0-9]/g, "");
-            const next = raw === "" ? 0 : Number(raw);
-            setQty((prev) => ({
-              ...prev,
-              [id]: Number.isNaN(next) ? 0 : next,
-            }));
-          };
-
+  const handleQtyChange = (id, e) => {
+    const raw = e.target.value.replace(/[^0-9]/g, "");
+    const next = raw === "" ? 0 : Number(raw);
+    setQty((prev) => ({
+      ...prev,
+      [id]: Number.isNaN(next) ? 0 : next,
+    }));
+  };
 
   const { user, setUser } = useContext(AuthContext);
 
@@ -83,8 +82,8 @@ export default function CalorieCartAppLayout({ children }) {
 
   return (
     <div>
-       <Navbar
-        style={{ backgroundColor: "#59b371" }}
+      <Navbar
+        style={{ backgroundColor: "#367C49" }}
         data-bs-theme="dark"
         expand="md"
       >
@@ -121,12 +120,16 @@ export default function CalorieCartAppLayout({ children }) {
               <div style={{ display: "flex", alignItems: "center" }}>
                 <Nav>
                   <NavDropdown
-                    title="Store"
-                    menuVariant="dark"
-                    style={{ marginRight: 12 }}
+                    title={<span style={{ color: "#fff" }}>Store</span>}
+                    className="store-toggle"
+                    style={{ marginRight: 12, fontSize: 24 }}
                   >
                     {types.map((t) => (
-                      <NavDropdown.Item key={t} onClick={() => goToStore(t)}>
+                      <NavDropdown.Item
+                        aria-label={`Store ${t}`}
+                        key={t}
+                        onClick={() => goToStore(t)}
+                      >
                         {t}
                       </NavDropdown.Item>
                     ))}
@@ -143,11 +146,20 @@ export default function CalorieCartAppLayout({ children }) {
                 }}
               >
                 {user ? (
-                  <Nav.Link onClick={handleLogout} style={{ color: "#fff" }}>
+                  <Nav.Link
+                    aria-label="Logout Button"
+                    onClick={handleLogout}
+                    style={{ color: "#fff" }}
+                  >
                     Logout
                   </Nav.Link>
                 ) : (
-                  <Nav.Link as={Link} to="/login" style={{ color: "#fff" }}>
+                  <Nav.Link
+                    aria-label="login button"
+                    as={Link}
+                    to="/login"
+                    style={{ color: "#fff" }}
+                  >
                     Login
                   </Nav.Link>
                 )}
@@ -198,7 +210,7 @@ export default function CalorieCartAppLayout({ children }) {
           subtract,
           handleQtyChange,
           removeItem,
-          clearCart
+          clearCart,
         })}
       <CheckoutComponent
         show={showCart}

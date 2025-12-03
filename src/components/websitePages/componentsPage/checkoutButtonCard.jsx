@@ -181,7 +181,7 @@ export default function CheckoutButtonCard({ items, qty, clearCart }) {
       >
         <Card.Header
           style={{
-            backgroundColor: "#59b371",
+            backgroundColor: "#367C49",
             color: "white",
             fontWeight: "bold",
             fontSize: 18,

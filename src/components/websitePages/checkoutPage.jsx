@@ -18,6 +18,7 @@ export default function checkout({
   return (
     <div>
       <Container>
+          <h1 style={{margin:20, textAlign:"center"}}>Checkout Page</h1>
         <Row>
           <Col xs={12} md={8}>
             <CheckoutComponent

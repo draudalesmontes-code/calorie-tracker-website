@@ -123,6 +123,7 @@ export default function store() {
           paddingBottom: 24,
         }}
       >
+        <h1 hidden={true}>Account Page</h1>
         <div
           style={{
             maxWidth: 1100,

@@ -141,7 +141,7 @@ export default function goalsCardAccount({
             <div style={{ flex: 1, margin: " 8px" }}>
               <ProgressBar
                 now={fatPct}
-                label="fat%"
+                label="fat"
                 style={{
                   "--bs-progress-bar-bg": "#007BC7",
                   height: "18px",

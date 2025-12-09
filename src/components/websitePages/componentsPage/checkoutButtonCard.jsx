@@ -251,7 +251,7 @@ export default function CheckoutButtonCard({ items, qty, clearCart }) {
           >
             <span>Total Protein this purchase</span>
             <span>
-              <strong>{Math.round(addProtein)} cal</strong>
+              <strong>{Math.round(addProtein)} protein in grams</strong>
             </span>
           </div>
           <div
@@ -265,7 +265,7 @@ export default function CheckoutButtonCard({ items, qty, clearCart }) {
           >
             <span>Total Fat this purchase</span>
             <span>
-              <strong>{Math.round(addFat)} cal</strong>
+              <strong>{Math.round(addFat)} fat in grams</strong>
             </span>
           </div>
           <div

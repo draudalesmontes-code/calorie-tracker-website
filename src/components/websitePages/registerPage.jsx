@@ -301,38 +301,34 @@ export default function register() {
               </Col>
 
               <div style={{ marginTop: 8, marginBottom: 8 }}>
-                <ToggleButton
-                  id="goal-gain"
-                  type="checkbox"
-                  variant={gainSelected ? "primary" : "outline-primary"}
-                  checked={gainSelected}
-                  value="gain"
-                  onChange={(goal) => {
-                    const next = goal.currentTarget.checked;
-                    setGainSelected(next);
-                    if (next) setLoseSelected(false); // keep them mutually exclusive
-                  }}
-                  style={{ marginRight: 8 }}
-                >
-                  Gain Weight
-                </ToggleButton>
+  <ToggleButtonGroup
+    type="radio"
+    name="goal"
+    value={gainSelected ? "gain" : "lose"} // derives the radio value from your states
+    onChange={(val) => {
+      setGainSelected(val === "gain");
+      setLoseSelected(val === "lose");
+    }}
+  >
+    <ToggleButton
+      id="goal-gain"
+      value="gain"
+      variant={gainSelected ? "primary" : "outline-primary"}
+      style={{ marginRight: 8 }}
+    >
+      Gain Weight
+    </ToggleButton>
 
-                <ToggleButton
-                  id="goal-lose"
-                  type="checkbox"
-                  className="goal-toggle"
-                  variant={loseSelected ? "primary" : "outline-primary"}
-                  checked={loseSelected}
-                  value="lose"
-                  onChange={(goal) => {
-                    const next = goal.currentTarget.checked;
-                    setLoseSelected(next);
-                    if (next) setGainSelected(false); // keep them mutually exclusive
-                  }}
-                >
-                  Lose Weight
-                </ToggleButton>
-              </div>
+    <ToggleButton
+      id="goal-lose"
+      value="lose"
+      variant={loseSelected ? "primary" : "outline-primary"}
+    >
+      Lose Weight
+    </ToggleButton>
+  </ToggleButtonGroup>
+</div>
+
               <br />
             </Form>
           </CardBody>

@@ -1,16 +1,55 @@
-# React + Vite
+# Calorie Cart — Calorie-Aware Grocery Shopping App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Calorie Cart is a React web application that combines online grocery shopping with calorie tracking. Users browse a store of food items, add them to a cart, and see a running calorie count alongside their order — helping them stay accountable to their dietary goals at checkout.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+- **Frontend**: React 18, Vite
+- **UI**: React Bootstrap
+- **State**: React hooks (cart quantity, session)
+- **Auth**: Login / Register pages with session management
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- **Home** — hero carousel showcasing the app's value, deals section with discounted items
+- **Store** — browse full food catalog with calorie info per item
+- **Cart & Checkout** — running calorie total alongside item prices
+- **Account** — user profile page
+- **Auth** — login and registration flows
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── structural/
+│   │   ├── CalorieCartApp.jsx      ← root app shell
+│   │   └── calorieCartAppLayout.jsx
+│   └── websitePages/
+│       ├── homePage.jsx
+│       ├── storePage.jsx
+│       ├── checkoutPage.jsx
+│       ├── AccountPage.jsx
+│       ├── loginPage.jsx
+│       └── registerPage.jsx
+├── API/
+│   └── items.json                  ← food item catalog
+└── assets/                         ← icons (calories, protein, etc.)
+```
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser.
+
+## Build
+
+```bash
+npm run build
+```
